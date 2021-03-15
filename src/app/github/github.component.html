@@ -1,0 +1,12 @@
+<div>
+  <label>Enter a GitHub Username:</label>
+  <input type="text" placeholder="Username" (keyup)="usernameTyped($event)" />
+  <button (click)="search()">Go!</button>
+  <hr>
+  <ul *ngIf="repos.length > 0; else norepos">
+    <li *ngFor="let repo of repos">{{ repo.full_name }}</li>
+  </ul>
+  <ng-template #norepos>
+    <p>No repos found...</p>
+  </ng-template>
+</div>
